@@ -93,3 +93,4 @@
   gEfiSecurityPkgTokenSpaceGuid.PcdOptionRomImageVerificationPolicy          ## SOMETIMES_CONSUMES
   gEfiSecurityPkgTokenSpaceGuid.PcdRemovableMediaImageVerificationPolicy     ## SOMETIMES_CONSUMES
   gEfiSecurityPkgTokenSpaceGuid.PcdFixedMediaImageVerificationPolicy         ## SOMETIMES_CONSUMES
+  gEfiSecurityPkgTokenSpaceGuid.PcdSystemHashPolicy                          ## SOMETIMES_CONSUMES

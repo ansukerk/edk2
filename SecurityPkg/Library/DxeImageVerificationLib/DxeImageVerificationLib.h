@@ -70,6 +70,14 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #define HASHALG_MAX                            0x00000005
 
 //
+// Hash Algorithms (as per TPM 2.0)
+//
+#define HASH_ALG_SHA1                          0x00000001
+#define HASH_ALG_SHA256                        0x00000002
+#define HASH_ALG_SHA384                        0x00000004
+#define HASH_ALG_SHA512                        0x00000008
+#define HASH_ALG_SM3_256                       0x00000010
+//
 // Set max digest size as SHA512 Output (64 bytes) by far
 //
 #define MAX_DIGEST_SIZE    SHA512_DIGEST_SIZE

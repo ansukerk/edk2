@@ -1570,6 +1570,7 @@ DxeImageVerificationHandler (
   EFI_IMAGE_EXECUTION_ACTION           Action;
   WIN_CERTIFICATE                      *WinCertificate;
   UINT32                               Policy;
+  UINT32                               UnsignedImageHashPolicy;
   UINT8                                *SecureBoot;
   PE_COFF_LOADER_IMAGE_CONTEXT         ImageContext;
   UINT32                               NumberOfRvaAndSizes;
@@ -1724,10 +1725,32 @@ DxeImageVerificationHandler (
   //
   if (SecDataDir == NULL || SecDataDir->Size == 0) {
     //
-    // This image is not signed. The SHA256 hash value of the image must match a record in the security database "db",
+    // This image is not signed. The hash value of the image must match a record in the security database "db",
     // and not be reflected in the security data base "dbx".
-    //
-    if (!HashPeImage (HASHALG_SHA256)) {
+    // Use Unsigned Image Verification Hash policy to determine the required hash algorithm. This algorithm MUST
+    // match the one used to hash the unsigned image while enrolling DB/DBX.
+    switch (PcdGet32 (PcdSystemHashPolicy)) {
+      case HASH_ALG_SHA1:
+        UnsignedImageHashPolicy = HASHALG_SHA1;
+        break;
+
+      case HASH_ALG_SHA256:
+        UnsignedImageHashPolicy = HASHALG_SHA256;
+        break;
+
+      case HASH_ALG_SHA384:
+        UnsignedImageHashPolicy = HASHALG_SHA384;
+        break;
+
+      case HASH_ALG_SHA512:
+        UnsignedImageHashPolicy = HASHALG_SHA512;
+        break;
+
+      default:
+        break;
+    }
+
+    if (!HashPeImage (UnsignedImageHashPolicy)) {
       DEBUG ((DEBUG_INFO, "DxeImageVerificationLib: Failed to hash this image using %s.\n", mHashTypeStr));
       goto Done;
     }
