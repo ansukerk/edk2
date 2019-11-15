@@ -2,10 +2,9 @@
 #  Provides hash service by registered hash handler
 #
 #  This library is BaseCrypto router. It will redirect hash request to each individual
-#  hash handler registered, such as SHA1, SHA256. Platform can use PcdTpm2HashMask to
-#  mask some hash engines.
+#  hash handler registered, such as SHA1, SHA256. 
 #
-# Copyright (c) 2013 - 2018, Intel Corporation. All rights reserved.<BR>
+# Copyright (c) 2018 - 2019, Intel Corporation. All rights reserved.<BR>
 # SPDX-License-Identifier: BSD-2-Clause-Patent
 #
 ##
@@ -27,9 +26,8 @@
 #
 
 [Sources]
-  BaseHashLib.h
+  BaseHashLibCommon.h
   BaseHashLibPei.c
-  BaseHashLib.c
 
 [Packages]
   MdePkg/MdePkg.dec
@@ -43,8 +41,9 @@
   MemoryAllocationLib
   PcdLib
 
-[Pcd]
-  gEfiSecurityPkgTokenSpaceGuid.PcdTpm2HashMask             ## CONSUMES
-  gEfiSecurityPkgTokenSpaceGuid.PcdHashAlgorithmBitmap    ## CONSUMES
-  gEfiSecurityPkgTokenSpaceGuid.PcdSystemHashPolicy    ## CONSUMES
+[Guids]
+  ## SOMETIMES_CONSUMES   ## GUID
+  gZeroGuid
 
+[Pcd]
+  gEfiSecurityPkgTokenSpaceGuid.PcdSystemHashPolicy    ## CONSUMES
