@@ -17,3 +17,20 @@
 
 
 
+#string STR_gEfiCryptoPkgTokenSpaceGuid_PcdHashApiLibPolicy_PROMPT  #language en-US "HASH algorithm to verify unsigned PE/COFF image"
+
+#string STR_gEfiCryptoPkgTokenSpaceGuid_PcdHashApiLibPolicy_HELP  #language en-US "This PCD indicates the HASH algorithm to verify unsigned PE/COFF image.<BR><BR>\n"
+                                                                                        "Based on the value set, the required algorithm is chosen to verify\n"
+                                                                                        "the unsigned image during Secure Boot.<BR>\n"
+                                                                                        "The hashing algorithm selected must match the hashing algorithm used to\n"
+                                                                                        "hash the image to be added to DB using tools such as KeyEnroll.<BR>\n"
+                                                                                        "0x00000001  -  MD4.<BR>\n"
+                                                                                        "0x00000002  -  MD5.<BR>\n"
+                                                                                        "0x00000003  -  SHA1.<BR>\n"
+                                                                                        "0x00000004  -  SHA256.<BR>\n"
+                                                                                        "0x00000005  -  SHA384.<BR>\n"
+                                                                                        "0x00000006  -  SHA512.<BR>\n"
+                                                                                        "0x00000007  -  SM3.<BR>"
+
+
+

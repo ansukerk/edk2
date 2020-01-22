@@ -1,7 +1,7 @@
 ## @file
 #  Cryptographic Library Package for UEFI Security Implementation.
 #
-#  Copyright (c) 2009 - 2018, Intel Corporation. All rights reserved.<BR>
+#  Copyright (c) 2009 - 2020, Intel Corporation. All rights reserved.<BR>
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
 #
 ##
@@ -62,15 +62,19 @@
 
 [LibraryClasses.common.PEIM]
   BaseCryptLib|CryptoPkg/Library/BaseCryptLib/PeiCryptLib.inf
+  HashApiLib|CryptoPkg/Library/HashApiLib/HashApiLib.inf
 
 [LibraryClasses.common.DXE_DRIVER]
   BaseCryptLib|CryptoPkg/Library/BaseCryptLib/BaseCryptLib.inf
+  HashApiLib|CryptoPkg/Library/HashApiLib/HashApiLib.inf
 
 [LibraryClasses.common.DXE_RUNTIME_DRIVER]
   BaseCryptLib|CryptoPkg/Library/BaseCryptLib/RuntimeCryptLib.inf
+  HashApiLib|CryptoPkg/Library/HashApiLib/HashApiLib.inf
 
 [LibraryClasses.common.DXE_SMM_DRIVER]
   BaseCryptLib|CryptoPkg/Library/BaseCryptLib/SmmCryptLib.inf
+  HashApiLib|CryptoPkg/Library/HashApiLib/HashApiLib.inf
 
 [LibraryClasses.common.UEFI_DRIVER]
   BaseCryptLib|CryptoPkg/Library/BaseCryptLib/BaseCryptLib.inf
@@ -120,6 +124,7 @@
   CryptoPkg/Library/TlsLibNull/TlsLibNull.inf
   CryptoPkg/Library/OpensslLib/OpensslLib.inf
   CryptoPkg/Library/OpensslLib/OpensslLibCrypto.inf
+  CryptoPkg/Library/HashApiLib/HashApiLib.inf
 
 [Components.IA32, Components.X64]
   CryptoPkg/Library/BaseCryptLib/SmmCryptLib.inf
