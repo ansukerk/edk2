@@ -31,32 +31,24 @@ HashApiGetContextSize (
   VOID
   )
 {
-  switch (PcdGet8 (PcdHashApiLibPolicy)) {
-    case HASH_API_ALGO_MD4:
-      return Md4GetContextSize ();
-      break;
-
-    case HASH_API_ALGO_MD5:
-      return Md5GetContextSize ();
-      break;
-
-    case HASH_API_ALGO_SHA1:
+  switch (PcdGet16 (PcdHashApiLibPolicy)) {
+    case HASH_ALG_SHA1:
       return Sha1GetContextSize ();
       break;
 
-    case HASH_API_ALGO_SHA256:
+    case HASH_ALG_SHA256:
       return Sha256GetContextSize ();
       break;
 
-    case HASH_API_ALGO_SHA384:
+    case HASH_ALG_SHA384:
       return Sha384GetContextSize ();
       break;
 
-    case HASH_API_ALGO_SHA512:
+    case HASH_ALG_SHA512:
       return Sha512GetContextSize ();
       break;
 
-    case HASH_API_ALGO_SM3_256:
+    case HASH_ALG_SM3_256:
       return Sm3GetContextSize ();
       break;
 
@@ -81,32 +73,24 @@ HashApiInit (
   OUT HASH_API_CONTEXT  HashContext
   )
 {
-  switch (PcdGet8 (PcdHashApiLibPolicy)) {
-    case HASH_API_ALGO_MD4:
-      return Md4Init (HashContext);
-      break;
-
-    case HASH_API_ALGO_MD5:
-      return Md5Init (HashContext);
-      break;
-
-    case HASH_API_ALGO_SHA1:
+  switch (PcdGet16 (PcdHashApiLibPolicy)) {
+    case HASH_ALG_SHA1:
       return Sha1Init (HashContext);
       break;
 
-    case HASH_API_ALGO_SHA256:
+    case HASH_ALG_SHA256:
       return Sha256Init (HashContext);
       break;
 
-    case HASH_API_ALGO_SHA384:
+    case HASH_ALG_SHA384:
       return Sha384Init (HashContext);
       break;
 
-    case HASH_API_ALGO_SHA512:
+    case HASH_ALG_SHA512:
       return Sha512Init (HashContext);
       break;
 
-    case HASH_API_ALGO_SM3_256:
+    case HASH_ALG_SM3_256:
       return Sm3Init (HashContext);
       break;
 
@@ -133,32 +117,24 @@ HashApiDuplicate (
   OUT HASH_API_CONTEXT  NewHashContext
   )
 {
-  switch (PcdGet8 (PcdHashApiLibPolicy)) {
-    case HASH_API_ALGO_MD4:
-      return Md4Duplicate (HashContext, NewHashContext);
-      break;
-
-    case HASH_API_ALGO_MD5:
-      return Md5Duplicate (HashContext, NewHashContext);
-      break;
-
-    case HASH_API_ALGO_SHA1:
+  switch (PcdGet16 (PcdHashApiLibPolicy)) {
+    case HASH_ALG_SHA1:
       return Sha1Duplicate (HashContext, NewHashContext);
       break;
 
-    case HASH_API_ALGO_SHA256:
+    case HASH_ALG_SHA256:
       return Sha256Duplicate (HashContext, NewHashContext);
       break;
 
-    case HASH_API_ALGO_SHA384:
+    case HASH_ALG_SHA384:
       return Sha384Duplicate (HashContext, NewHashContext);
       break;
 
-    case HASH_API_ALGO_SHA512:
+    case HASH_ALG_SHA512:
       return Sha512Duplicate (HashContext, NewHashContext);
       break;
 
-    case HASH_API_ALGO_SM3_256:
+    case HASH_ALG_SM3_256:
       return Sm3Duplicate (HashContext, NewHashContext);
       break;
 
@@ -187,32 +163,24 @@ HashApiUpdate (
   IN UINTN             DataToHashLen
   )
 {
-  switch (PcdGet8 (PcdHashApiLibPolicy)) {
-    case HASH_API_ALGO_MD4:
-      return Md4Update (HashContext, DataToHash, DataToHashLen);
-      break;
-
-    case HASH_API_ALGO_MD5:
-      return Md5Update (HashContext, DataToHash, DataToHashLen);
-      break;
-
-    case HASH_API_ALGO_SHA1:
+  switch (PcdGet16 (PcdHashApiLibPolicy)) {
+    case HASH_ALG_SHA1:
       return Sha1Update (HashContext, DataToHash, DataToHashLen);
       break;
 
-    case HASH_API_ALGO_SHA256:
+    case HASH_ALG_SHA256:
       return Sha256Update (HashContext, DataToHash, DataToHashLen);
       break;
 
-    case HASH_API_ALGO_SHA384:
+    case HASH_ALG_SHA384:
       return Sha384Update (HashContext, DataToHash, DataToHashLen);
       break;
 
-    case HASH_API_ALGO_SHA512:
+    case HASH_ALG_SHA512:
       return Sha512Update (HashContext, DataToHash, DataToHashLen);
       break;
 
-    case HASH_API_ALGO_SM3_256:
+    case HASH_ALG_SM3_256:
       return Sm3Update (HashContext, DataToHash, DataToHashLen);
       break;
 
@@ -239,32 +207,24 @@ HashApiFinal (
   OUT UINT8             *Digest
   )
 {
-  switch (PcdGet8 (PcdHashApiLibPolicy)) {
-    case HASH_API_ALGO_MD4:
-      return Md4Final (HashContext, Digest);
-      break;
-
-    case HASH_API_ALGO_MD5:
-      return Md5Final (HashContext, Digest);
-      break;
-
-    case HASH_API_ALGO_SHA1:
+  switch (PcdGet16 (PcdHashApiLibPolicy)) {
+    case HASH_ALG_SHA1:
       return Sha1Final (HashContext, Digest);
       break;
 
-    case HASH_API_ALGO_SHA256:
+    case HASH_ALG_SHA256:
       return Sha256Final (HashContext, Digest);
       break;
 
-    case HASH_API_ALGO_SHA384:
+    case HASH_ALG_SHA384:
       return Sha384Final (HashContext, Digest);
       break;
 
-    case HASH_API_ALGO_SHA512:
+    case HASH_ALG_SHA512:
       return Sha512Final (HashContext, Digest);
       break;
 
-    case HASH_API_ALGO_SM3_256:
+    case HASH_ALG_SM3_256:
       return Sm3Final (HashContext, Digest);
       break;
 
@@ -293,32 +253,24 @@ HashApiHashAll (
   OUT UINT8       *Digest
   )
 {
-  switch (PcdGet8 (PcdHashApiLibPolicy)) {
-    case HASH_API_ALGO_MD4:
-      return Md4HashAll (DataToHash, DataToHashLen, Digest);
-      break;
-
-    case HASH_API_ALGO_MD5:
-      return Md5HashAll (DataToHash, DataToHashLen, Digest);
-      break;
-
-    case HASH_API_ALGO_SHA1:
+  switch (PcdGet16 (PcdHashApiLibPolicy)) {
+    case HASH_ALG_SHA1:
       return Sha1HashAll (DataToHash, DataToHashLen, Digest);
       break;
 
-    case HASH_API_ALGO_SHA256:
+    case HASH_ALG_SHA256:
       return Sha256HashAll (DataToHash, DataToHashLen, Digest);
       break;
 
-    case HASH_API_ALGO_SHA384:
+    case HASH_ALG_SHA384:
       return Sha384HashAll (DataToHash, DataToHashLen, Digest);
       break;
 
-    case HASH_API_ALGO_SHA512:
+    case HASH_ALG_SHA512:
       return Sha512HashAll (DataToHash, DataToHashLen, Digest);
       break;
 
-    case HASH_API_ALGO_SM3_256:
+    case HASH_ALG_SM3_256:
       return Sm3HashAll (DataToHash, DataToHashLen, Digest);
       break;
 
