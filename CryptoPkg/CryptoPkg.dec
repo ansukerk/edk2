@@ -69,7 +69,7 @@
       Pcd/PcdCryptoServiceFamilyEnable.h
   }
 
-[PcdsFixedAtBuild, PcdsPatchableInModule, PcdsDynamic, PcdsDynamicEx]
+[PcdsFixedAtBuild]
   ## This PCD indicates the HASH algorithm to calculate hash of data
   #  Based on the value set, the required algorithm is chosen to calculate
   #  the hash of data.<BR>
